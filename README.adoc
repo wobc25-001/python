@@ -17,7 +17,7 @@ Committing and pushing is easy from here.
 [source,bash]
 ....
 git commit -am "My First Submission"
-git push -u <your-last-name> <your-branch-name>
+git push -u origin <your-last-name>
 ....
 
 [NOTE]

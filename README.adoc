@@ -1,0 +1,30 @@
+== Python
+
+This is the repository for WOBC python challenges.
+
+=== Submission
+
+If you would like to submit your work, clone this repository and checkout
+a branch.
+
+[source,bash]
+....
+git checkout -b <your-last-name>
+....
+
+Committing and pushing is easy from here.
+
+[source,bash]
+....
+git commit -am "My First Submission"
+git push -u <your-last-name> <your-branch-name>
+....
+
+[NOTE]
+====
+If you have added new files you will need to add them with
+`git add <file>` or `git add -A` (for all).
+====
+
+After this initial push you will not have to specify the `-u` flag or
+additional arguments. For info on `-u` see link:https://git-scm.com/docs/user-manual[the manual].

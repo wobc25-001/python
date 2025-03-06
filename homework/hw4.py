@@ -28,3 +28,36 @@
 # 
 # named "ten_words.txt". Assume the file will be written to the same directory
 # where your program is located.
+
+# SPDX-FileCopyrightText: © 2025 Spencer Rak
+# SPDX-License-Identifier: MIT
+#!/usr/bin/python3
+
+def main():
+
+    fp = None
+
+    while 1:
+        fp = input("Enter a filename: ")
+        if fp not in ("small", "large"):
+            print("Sorry, only files `small` and `large` are supported")
+            continue
+        break
+
+    freq = {}
+    buf = ""
+
+    with open(fp) as fh:
+        while buf := fh.read(1024):
+            for c in buf:
+                if c == " ":
+                    continue
+                if c not in freq.keys():
+                    freq[c] = 0
+                freq[c] += 1
+
+    print(freq)
+
+
+if __name__ == "__main__":
+    main()

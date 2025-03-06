@@ -36,3 +36,56 @@
 # Print a list of all valid IP address occurences in order of appearance.
 # Print a set of all valid IP addresses.
 # Print a sorted set of all unique valid IP addresses.
+
+# SPDX-FileCopyrightText: © 2025 Spencer Rak
+# SPDX-License-Identifier: MIT
+#!/usr/bin/python3
+
+import random
+import string
+
+def roctet():
+    n = random.randint(1, 3)
+    f = None
+    if n > 2:
+        f = str(random.randint(1, 2))
+
+    r = "".join([random.choice(string.digits) for _ in range(0, (2 if n == 3 else n))])
+    if f:
+        r = f+r
+    if int(r) > 255:
+        r = "255"
+    return r
+
+
+def raddr():
+    return ".".join([roctet() for _ in range(4)])
+
+def raddrs(x):
+    return [raddr() for _ in range(x)]
+
+def mkdupes(addrs, n):
+    dupes = []
+    for _ in range(n):
+        dupes.append(random.choice(addrs))
+    dupes += addrs
+    return dupes
+
+def main():
+    addrs = raddrs(100)
+    addrs = mkdupes(addrs, 100)
+
+    sort = {}
+
+    for a in addrs:
+        if a in sort.keys():
+            sort[a] += 1
+        else:
+            sort[a] = 1
+
+    print(sort)
+
+
+
+if __name__ == "__main__":
+    main()

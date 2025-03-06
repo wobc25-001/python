@@ -30,7 +30,7 @@ def main():
     pw = None
 
     def find_char(charset, string):
-        return True in list(map(lambda x: x in charset, string))
+        return any(map(lambda x: x in charset, string))
 
     print("This is the password checker. Is your password good?\n")
     while 1:

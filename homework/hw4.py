@@ -33,6 +33,8 @@
 # SPDX-License-Identifier: MIT
 #!/usr/bin/python3
 
+import string
+
 def main():
 
     fp = None
@@ -44,6 +46,8 @@ def main():
             continue
         break
 
+    tot_words = 0
+    words = {}
     freq = {}
     buf = ""
 
@@ -55,8 +59,23 @@ def main():
                 if c not in freq.keys():
                     freq[c] = 0
                 freq[c] += 1
+        fh.seek(0)
+        for l in fh.readlines():
+            for w in map(str.lower, l.strip().split(" ")):
+                if len(w) == 0:
+                    continue
+                if w[0] in string.punctuation:
+                    w = w[1:]
+                if w[-1] in string.punctuation:
+                    w = w[:-1]
+                tot_words += 1
+                if w not in words:
+                    words[w] = 0
+                words[w] += 1
 
     print(freq)
+    print(words)
+    print(tot_words)
 
 
 if __name__ == "__main__":

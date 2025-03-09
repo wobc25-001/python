@@ -2,13 +2,10 @@
 # Concepts covered:
 # - User input
 # - String concatenation
-# 
 # - String formatting
 # - Variable assignment
 # - Comments
-# 
 # - Mathematical Operators
-# 
 # - Floats
 # 
 # Create a program that accepts the age, first name, and last name of the user as user
@@ -33,9 +30,10 @@
 # SPDX-License-Identifier: MIT
 #!/usr/bin/python3
 
+import datetime
+now = datetime.datetime.now()
+
 def tombstone(age, name) -> None:
-    import datetime
-    now = datetime.datetime.now()
     bd = 2025-age
     dd = datetime.datetime(bd, now.month, now.day)
     d = now.strftime("%m/%d/%Y")
@@ -49,9 +47,9 @@ def tombstone(age, name) -> None:
     stone += "                                |  | \ | |     |\n"
     stone += "                                |              |\n"
     stone += "                 ______.______%_|              |__________  _____\n"
-    stone += "               _/                                       \|     |\n"
+    stone += "               _/                                         \|     |\n"
     stone += f"              |                   {name}              <\n"
-    stone += "              |_____.-._________                __/|___________|\n"
+    stone += "              |_____.-._________                __/|_____________|\n"
     stone += f"                                | * {d} |\n"
     stone += f"                                | + {b} |\n"
     stone += "                                |              |\n"
@@ -85,6 +83,14 @@ def loading_bar(p: float) -> None:
     line += "]"
     print(line)
 
+def unames(first, last):
+    first, last = map(str.lower, (first, last))
+    return (
+        first[0]+"."+last,
+        first+"."+last,
+        first+"."+last[0],
+    )
+
 def main():
     age = None
     name = None
@@ -97,26 +103,28 @@ def main():
         except ValueError as e:
             print("Please enter a number.")
 
-    while 1:
-        try:
-            name = input("Enter your name as first <space> last: ")
-            fname, lname = tuple(map(str.title, name.split(" ")))
-            break
-        except ValueError as e:
-            if str(e).startswith("too many"):
-                print("Please only enter two names")
-            elif str(e).startswith("not enough"):
-                print("Please enter two names")
+    fname = input("Enter your first name: ").strip().title()
+    lname = input("Enter your last name: ").strip().title()
 
     p = (1 - (73.4 - age) / 73.4) * 100
 
-    print("\n\n")
+    print("\n")
+
+    print(f"The users's birthyear is: {now.year-age}")
+    lunames = unames(fname, lname)
+    print(lunames)
+    print(f"You probably graduated highschool in {now.year-age+18}.")
+    print(f"Your possible email addresses are "+", ".join(map(lambda x: f"{x}@gmail.com", lunames)))
+
+    print("\n")
 
     if p > 100:
         tombstone(age, fname+" "+lname)
     else:
         print(f"Congratulations: {fname} {lname} You have completed {p:.2f}% of your journey.")
         loading_bar(p)
+
+    print("\n")
 
 if __name__ == "__main__":
     main()

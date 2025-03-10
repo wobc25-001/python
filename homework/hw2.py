@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: © 2025 Spencer Rak
+# SPDX-License-Identifier: MIT
+
 # Homework
 # 2
 # Concepts covered:
@@ -19,12 +23,9 @@
 # not have to specify how many or which character sets are missing. | just wanted to
 # track it during my testing.
 
-# SPDX-FileCopyrightText: © 2025 Spencer Rak
-# SPDX-License-Identifier: MIT
-#!/usr/bin/python3
-
 import getpass
 import string
+
 
 def main():
     pw = None

@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: © 2025 Spencer Rak
+# SPDX-License-Identifier: MIT
+
 # Homework 1
 # Concepts covered:
 # - User input
@@ -26,12 +30,9 @@
 # 4. Use appropriate comments to explain how your program is functioning.
 # 5. Name your file "Iname_hw1.py"
 
-# SPDX-FileCopyrightText: © 2025 Spencer Rak
-# SPDX-License-Identifier: MIT
-#!/usr/bin/python3
-
 import datetime
 now = datetime.datetime.now()
+
 
 def tombstone(age, name) -> None:
     bd = 2025-age

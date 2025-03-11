@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: © 2025 Spencer Rak
+# SPDX-License-Identifier: MIT
+
 # Homework 3
 # Concepts covered:
 # - dictionaries
@@ -11,10 +15,6 @@
 # - Regular expressions
 # - For loops
 #
-
-# SPDX-FileCopyrightText: © 2025 Spencer Rak
-# SPDX-License-Identifier: MIT
-#!/usr/bin/python3
 
 import ipaddress
 import random

@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: © 2025 Spencer Rak
+# SPDX-License-Identifier: MIT
+
 # Homework 4
 # 
 # 
@@ -29,11 +33,8 @@
 # named "ten_words.txt". Assume the file will be written to the same directory
 # where your program is located.
 
-# SPDX-FileCopyrightText: © 2025 Spencer Rak
-# SPDX-License-Identifier: MIT
-#!/usr/bin/python3
-
 import string
+
 
 def main():
 

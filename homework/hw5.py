@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: © 2025 Spencer Rak
+# SPDX-License-Identifier: MIT
+
 # Homework 5
 # Concepts covered:
 # - regular expressions
@@ -13,10 +17,6 @@
 # should all be 706-123-4567.
 # 3. Find all ".com" email addresses in the file. Print their username and the email
 # domain. Format should be: kirk.carter uses gmail.com
-
-# SPDX-FileCopyrightText: © 2025 Spencer Rak
-# SPDX-License-Identifier: MIT
-#!/usr/bin/python3
 
 import argparse
 import csv

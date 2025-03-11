@@ -3,26 +3,38 @@
 
 import asyncio
 import logging
-import random
+import os
 import socket
 
 
 from socketchat.config import logconfig
 
+class Server:
+    def __init__(self, ipv4addr, port, name=None, motd=None):
+        try:
+            self.ipv4addr = IPv4Address(ipv4addr)
+        except ipaddress.AddressValueError as e:
+            logger.fatal(f"{ipv4addr} is not a valid ipv4address")
+            exit()
+        self.port = port
+        self.name = name
+        self.motd = motd
+        self.ssock = socket.socket((self.ipv4addr, self.port))
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--client", help="Generate junk test data", action="store_true")
-    ap.add_argument("-v", dest="verbose", help="Increase logging", action="count")
-    args = ap.parse_args()
+    def setup(self):
+        try:
+            self.ssock.bind()
 
-    if args.generate:
-        generate()
-    else:
-        run()
-    print(args.verbose)
-    breakpoint()
-        
+        pass
 
-if __name__ == "__main__":
-    main()
+    def accept_client(self):
+        pass
+
+    def send_msg(self):
+        pass
+
+    def recv_msg(self):
+        pass
+
+    def remove_client(self):
+        pass
